@@ -44,6 +44,6 @@ $simulator = <<<EOF
     });
   })();
 EOF;
-$output = str_replace('</head>', '<base href="' . $url . '" /><script type="text/javascript">' . $simulator . '</script>', file_get_contents($url));
+$output = str_replace('</head>', '<base href="' . $url . '" /><script type="text/javascript">' . $simulator . '</script></head>', file_get_contents($url));
 echo $output;
 ?>
