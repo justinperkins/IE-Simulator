@@ -7,6 +7,11 @@
 
 	<title>IE simulator</title>
 	<style type="text/css">
+	  body{
+	    background:#fff;
+	    font-family:Helvetica, Arial, sans-serif;
+	    color:#666;
+	  }
 	</style>
 </head>
 
