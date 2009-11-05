@@ -44,6 +44,14 @@ $simulator = <<<EOF
     });
   })();
 EOF;
-$output = str_replace('</head>', '<base href="' . $url . '" /><script type="text/javascript">' . $simulator . '</script></head>', file_get_contents($url));
+
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"Referer: $url\r\n"
+  )
+);
+$context = stream_context_create($opts);
+$output = str_replace('<head>', '<head><base href="' . $url . '" /><script type="text/javascript">' . $simulator . '</script>', file_get_contents($url, false, $context));
 echo $output;
 ?>
